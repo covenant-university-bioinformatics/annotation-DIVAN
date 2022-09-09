@@ -2,18 +2,18 @@
 # docker build -t divan .
 
 ##Variables for bind mount
-db='/media/yagoubali/bioinfo2/DIVAN/db'
-outdir="/media/yagoubali/bioinfo2/DIVAN/scripts/output_docker"
-input_variants="/media/yagoubali/bioinfo2/DIVAN/variant.txt"
-input_regions="/media/yagoubali/bioinfo2/DIVAN/region.txt"
+db='/run/desktop/mnt/host/d/divan/db'
+outdir="/run/desktop/mnt/host/d/divan/output_docker"
+input_variants="/run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/annotation-DIVAN/variant.txt"
+input_regions="/run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/annotation-DIVAN/region.txt"
 
 
-docker run --rm -it --name testing -v ${db}:/db -v ${outdir}:/home/outdir -v ${input_variants}:/app/input.txt -v /app/scripts divan bash /app/scripts/script.sh /app/input.txt /home/outdir known BehcetSyndrome Ensembl 
+docker run --rm -it --name testing -v /run/desktop/mnt/host/d/divan/db:/db -v /run/desktop/mnt/host/d/divan/output_docker:/home/outdir -v /run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/annotation-DIVAN/variant.txt:/app/input.txt -v /app/scripts annotationdivan bash /app/scripts/script.sh /app/input.txt /home/outdir known BehcetSyndrome Ensembl
 
-docker run --rm -it --name testing2 -v ${db}:/db -v ${outdir}:/home/outdir -v ${input_regions}:/app/input.txt -v /app/scripts divan bash /app/scripts/script.sh /app/input.txt /home/outdir known BehcetSyndrome 1KG 
+docker run --rm -it --name testing2 -v /run/desktop/mnt/host/d/divan/db:/db -v /run/desktop/mnt/host/d/divan/output_docker:/home/outdir -v /run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/annotation-DIVAN/region.txt:/app/input.txt -v /app/scripts annotationdivan bash /app/scripts/script.sh /app/input.txt /home/outdir known BehcetSyndrome 1KG
 
 
-docker run --rm -it --name testing3 -v ${db}:/db -v ${outdir}:/home/outdir -v ${input_regions}:/app/input.txt -v /app/scripts divan bash /app/scripts/script.sh /app/input.txt /home/outdir unknown BehcetSyndrome 
+docker run --rm -it --name testing3 -v /run/desktop/mnt/host/d/divan/db:/db -v /run/desktop/mnt/host/d/divan/output_docker:/home/outdir -v /run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/annotation-DIVAN/region.txt:/app/input.txt -v /app/scripts annotationdivan bash /app/scripts/script.sh /app/input.txt /home/outdir unknown BehcetSyndrome
 
 
 

@@ -1,10 +1,11 @@
-FROM ubuntu:20.04
+FROM node:16
+
 ENV CI=true
 ENV PIP_IGNORE_INSTALLED=0
 
 WORKDIR /app
 
-## install R 
+## install R
 ## to stop interactve  input tzdata (timezone)
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Africa/Lagos
@@ -18,13 +19,15 @@ RUN apt-get -y install libcurl4-openssl-dev ## to resolve the issue this issue -
 RUN  R -e  "install.packages('BiocManager')"
 RUN   R -e 'BiocManager::install(ask = F)' &&  R -e "BiocManager::install('GenomicRanges')"
 
-COPY scripts/script.sh ./scripts/
+COPY package.json ./
 
+RUN npm install
+
+COPY ./ ./
+
+#remove windows line endings
 RUN apt-get install -y dos2unix
-RUN dos2unix /app/scripts/script.sh
-RUN chmod 775 /app/scripts/script.sh
+RUN dos2unix pipeline_scripts/pipeline.sh
+RUN chmod 775 pipeline_scripts/pipeline.sh
 
-#ENTRYPOINT ["bash", "/app/scripts.sh"]
-CMD ["bash", "/app/scripts/script.sh"]
-
-
+CMD [ "npm", "run", "start:dev" ]

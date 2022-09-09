@@ -9,7 +9,7 @@ disease=$4  ##{disease}  all:batchscript
 
 
 
-db="/db"  ### Mount Docker volume
+db="/local/datasets/divan"  ### Mount Docker volume
 
 if [ ${variant_type} = 'known' ]; then
      variant_db=$5 ##{1KG, cosmic, Ensembl}
@@ -67,48 +67,48 @@ fi
 ## unzip ---> tar -xvf 
 
 # diseases list
-# Albuminuria
-# Alcoholism
-# AlzheimerDisease
-# AmyotrophicLateralSclerosis
-# Arthritis,Rheumatoid
-# Asthma
-# AttentionDeficitDisorderwithHyperactivity
-# BehcetSyndrome
-# BipolarDisorder
-# BodyWeightChanges
-# BodyWeight
-# BreastNeoplasms
-# CardiovascularDiseases
-# CarotidArteryDiseases
-# Colitis,Ulcerative
-# CoronaryArteryDisease
-# CoronaryDisease
-# CrohnDisease
-# Death,Sudden,Cardiac
-# DepressiveDisorder,Major
-# DiabetesMellitus,Type1
-# DiabetesMellitus,Type2
-# DiabeticNephropathies
-# HeartFailure
-# Hypertension
-# Hypertrophy,LeftVentricular
-# Inflammation
-# InflammatoryBowelDiseases
-# InsulinResistance
-# LupusErythematosus,Systemic
-# MacularDegeneration
-# MentalCompetency
-# MetabolicSyndromeX
-# MultipleSclerosis
-# MyocardialInfarction
-# Neuroblastoma
-# Obesity
-# Osteoporosis
-# PancreaticNeoplasms
-# ParkinsonDisease
-# ProstaticNeoplasms
-# Psoriasis
-# Schizophrenia
-# Sleep
-# Stroke
+#Albuminuria
+#Alcoholism
+#AlzheimerDisease
+#AmyotrophicLateralSclerosis
+#Arthritis_Rheumatoid
+#Asthma
+#AttentionDeficitDisorderwithHyperactivity
+#BehcetSyndrome
+#BipolarDisorder
+#BodyWeightChanges
+#BodyWeight
+#BreastNeoplasms
+#CardiovascularDiseases
+#CarotidArteryDiseases
+#Colitis_Ulcerative
+#CoronaryArteryDisease
+#CoronaryDisease
+#CrohnDisease
+#Death_Sudden_Cardiac
+#DepressiveDisorder_Major
+#DiabetesMellitus_Type1
+#DiabetesMellitus_Type2
+#DiabeticNephropathies
+#HeartFailure
+#Hypertension
+#Hypertrophy_LeftVentricular
+#Inflammation
+#InflammatoryBowelDiseases
+#InsulinResistance
+#LupusErythematosus_Systemic
+#MacularDegeneration
+#MentalCompetency
+#MetabolicSyndromeX
+#MultipleSclerosis
+#MyocardialInfarction
+#Neuroblastoma
+#Obesity
+#Osteoporosis
+#PancreaticNeoplasms
+#ParkinsonDisease
+#ProstaticNeoplasms
+#Psoriasis
+#Schizophrenia
+#Sleep
+#Stroke
