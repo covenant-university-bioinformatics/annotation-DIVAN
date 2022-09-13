@@ -22,10 +22,9 @@ import {
 import { validateInputs } from './service.util';
 
 //production
-// const testPath =
-//   '/local/datasets/pgwas_test_files/focus_fmap/UK_focus.0.05_rs.txt';
+const testPath = '/local/datasets/pgwas_test_files/divan/region.txt';
 // development
-const testPath = '/local/datasets/data/divan/region.txt';
+// const testPath = '/local/datasets/data/divan/region.txt';
 
 @Injectable()
 export class JobsDivanService {
@@ -152,7 +151,7 @@ export class JobsDivanService {
 
   async getJobByID(id: string, user: UserDoc) {
     const job = await DivanJobsModel.findById(id)
-      .populate('focus_params')
+      .populate('divan_params')
       .populate('user')
       .exec();
 
